@@ -1,0 +1,9 @@
+Library
+  signature RESULT
+  structure Result
+is
+  $/basis.cm
+  $SMACKAGE/typeclasses/v1/sources.cm
+
+  RESULT.sig
+  Result.sml
