@@ -1,0 +1,5 @@
+description: Controlled evaluation of functions
+maintainer: Harrison Grodin <hgrodin@andrew.cmu.edu>
+keywords: result timeout exception control
+bug-url: https://github.com/ProjectSavanna/result/issues
+requires: typeclasses v1
