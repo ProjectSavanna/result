@@ -1,7 +1,9 @@
 structure Result :> RESULT =
   struct
 
-    datatype 'a t = Value of 'a | Raise of exn | Timeout of Time.time
+    datatype 'a result = Value of 'a | Raise of exn | Timeout of Time.time
+
+    type 'a t = 'a result
 
 
     (* Inspired by https://github.com/msullivan/sml-util/blob/master/libs/timeout.sml *)

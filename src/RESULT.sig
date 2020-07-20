@@ -1,18 +1,13 @@
-local
-  signature DATATYPE =
-    sig
-      datatype 'a t = Value of 'a | Raise of exn | Timeout of Time.time
-    end
-in
-  signature RESULT =
-    sig
-      include MONAD DATATYPE
+signature RESULT =
+  sig
+    datatype 'a result = Value of 'a | Raise of exn | Timeout of Time.time
 
-      val evaluate : Time.time -> ('a -> 'b) -> 'a -> 'b t
+    include MONAD where type 'a t = 'a result
 
-      exception Result
-      val valOf : 'a t -> 'a
+    val evaluate : Time.time -> ('a -> 'b) -> 'a -> 'b t
 
-      val toString : ('a -> string) -> 'a t -> string
-    end
-end
+    exception Result
+    val valOf : 'a t -> 'a
+
+    val toString : ('a -> string) -> 'a t -> string
+  end
